@@ -1,0 +1,42 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+
+<form action="/Home/AddItemSubmit" method="post" enctype="multipart/form-data">
+    <table class="table">
+        <tr>
+            <td>
+                <input type="text" class="form-control" name="Name" />
+            </td>
+        </tr>
+        @if (TempData["NameError"] != null)
+        {
+            <tr>
+                <td>
+                    <p>
+                        @TempData["NameError"]
+                    </p>
+                </td>
+            </tr>
+        }
+        <tr>
+            <td>
+                <input type="text" class="form-control" name="Price" />
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <textarea name="Description" class="form-control"></textarea>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input type="submit" value="Save Item" />
+            </td>
+        </tr>
+    </table>
+</form>
