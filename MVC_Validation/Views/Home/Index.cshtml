@@ -1,4 +1,5 @@
-﻿
+﻿@model MVC_Validation.Models.BaseModel.Item
+
 @{
     ViewBag.Title = "Index";
 }
@@ -10,7 +11,7 @@
     <table class="table">
         <tr>
             <td>
-                <input type="text" class="form-control" name="Name" />
+                <input type="text" class="form-control" name="Name" value="@(Model?.Name)" />
             </td>
         </tr>
         @if (TempData["NameError"] != null)
@@ -25,14 +26,34 @@
         }
         <tr>
             <td>
-                <input type="text" class="form-control" name="Price" />
+                <input type="text" class="form-control" name="Price" value="@(Model?.Price)" />
             </td>
         </tr>
+        @if (TempData["PriceError"] != null)
+        {
+            <tr>
+                <td>
+                    <p>
+                        @TempData["PriceError"]
+                    </p>
+                </td>
+            </tr>
+        }
         <tr>
             <td>
-                <textarea name="Description" class="form-control"></textarea>
+                <textarea name="Description" class="form-control">@(Model?.Description)</textarea>
             </td>
         </tr>
+        @if (TempData["DescriptionError"] != null)
+        {
+            <tr>
+                <td>
+                    <p>
+                        @TempData["DescriptionError"]
+                    </p>
+                </td>
+            </tr>
+        }
         <tr>
             <td>
                 <input type="submit" value="Save Item" />

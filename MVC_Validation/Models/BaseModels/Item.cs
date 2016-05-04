@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace MVC_Validation.Models.BaseModel
+namespace MVC_Validation.Models.BaseModels
 {
     public class Item
     {

@@ -1,0 +1,85 @@
+﻿@model MVC_Validation.Models.BaseModels.Person
+@{
+    ViewBag.Title = "AddPerson";
+}
+
+<h2>Add Person</h2>
+
+<form action="/Home/AddPersonSubmit" method="post" enctype="multipart/form-data">
+    <table class="table-bordered">
+        <tr>
+            <td>
+                Firstname
+            </td>
+            <td>
+                <input type="text" name="Firstname" value="@(Model?.Firstname)" class="form-control" />
+            </td>
+        </tr>
+        @if (TempData["FirstnameError"] != null)
+        {
+            <tr>
+                <td colspan="2">
+                    <p>@TempData["FirstnameError"]</p>
+                </td>
+            </tr>
+        }
+        <tr>
+            <td>
+                Lastname
+            </td>
+            <td>
+                <input type="text" name="Lastname" value="@(Model?.Lastname)" class="form-control" />
+            </td>
+        </tr>
+        @if (TempData["LastnameError"] != null)
+        {
+            <tr>
+                <td colspan="2">
+                    <p>@TempData["LastnameError"]</p>
+                </td>
+            </tr>
+        }
+        <tr>
+            <td>
+                Age
+            </td>
+            <td>
+                <input type="number" name="Age" value="@(Model?.Age)" class="form-control" />
+            </td>
+        </tr>
+        @if (TempData["AgeError"] != null)
+        {
+            <tr>
+                <td colspan="2">
+                    <p>
+                        @TempData["AgeError"]
+                    </p>
+                </td>
+            </tr>
+        }
+        <tr>
+            <td>
+                Address
+            </td>
+            <td>
+                <textarea name="Address" class="form-control">@(Model?.Address)</textarea>
+            </td>
+        </tr>
+        @if (TempData["AddressError"] != null)
+        {
+            <tr>
+                <td colspan="2">
+                    <p>
+                        @TempData["AddressError"]
+                    </p>
+                </td>
+            </tr>
+        }
+        <tr>
+            <td colspan="2">
+                <input type="submit" value="Add Person" class="form-control" />
+            </td>
+        </tr>
+    </table>
+</form>
+

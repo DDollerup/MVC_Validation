@@ -6,7 +6,7 @@ using System.Web;
 
 namespace MVC_Validation.Factories
 {
-    public class ItemFactory : AutoFactory<Item>
+    public class PersonFactory : AutoFactory<Person>
     {
     }
 }
